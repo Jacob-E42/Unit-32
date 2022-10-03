@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- saved from url=(0099)https://curric.springboard.com/software-engineering-career-track/default/exercises/express-routing/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Express Routing Exercises</title>
+
+    <link rel="stylesheet" href="./Express Routing Exercises_files/pygments.css" type="text/css">
+    <link rel="stylesheet" href="./Express Routing Exercises_files/handouts-sphinx.css">
+
+    
+    <link href="./Express Routing Exercises_files/css" rel="stylesheet" type="text/css">
+    
+</head>
+<body>
+<div id="page-wrapper">
+    <div id="page-sidebar">
+        <header>
+            <p class="project">Springboard</p>
+
+            <p class="title">Express Routing Exercises</p>
+
+            <p class="backlink"><a href="https://curric.springboard.com/software-engineering-career-track/default/exercises/express-routing/index.html"> « Back to Homepage</a></p>
+
+        </header>
+        <div id="toc">
+            <ul>
+<li><a class="reference internal" href="https://curric.springboard.com/software-engineering-career-track/default/exercises/express-routing/index.html#">Express Routing Exercises</a><ul>
+<li><a class="reference internal" href="https://curric.springboard.com/software-engineering-career-track/default/exercises/express-routing/index.html#id1">Express Routing Exercises</a><ul>
+<li><a class="reference internal" href="https://curric.springboard.com/software-engineering-career-track/default/exercises/express-routing/index.html#requirements">Requirements</a></li>
+<li><a class="reference internal" href="https://curric.springboard.com/software-engineering-career-track/default/exercises/express-routing/index.html#further-study">Further Study</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="https://curric.springboard.com/software-engineering-career-track/default/exercises/express-routing/index.html#solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    <div id="page-content">
+        
+  <div class="section" id="express-routing-exercises">
+<h1>Express Routing Exercises</h1>
+<div class="section" id="id1">
+<p>For this exercise, you will build an Express.js application that performs three statistical operations given an arbitrary amount of numbers:</p>
+<ol class="arabic simple">
+<li><strong>mean</strong> (average)</li>
+<li><strong>median</strong> (midpoint)</li>
+<li><strong>mode</strong> (most frequent)</li>
+</ol>
+<p>The operations are invoked via <strong>one route per operation</strong>.</p>
+<div class="section" id="requirements">
+<h3>Requirements</h3>
+<p>The three base routes are <cite>/mean</cite>, <cite>/median</cite>, <cite>/mode</cite>. All accept GET requests</p>
+<p>Each route takes a query key of <cite>nums</cite> which is a comma-separated list of numbers. For example, if I want to get the mean of 1, 3, 5, and 7, that would look like be a GET request to <cite>/mean?nums=1,3,5,7</cite>.</p>
+<p>The response of each operation should be JSON which looks like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">response</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">operation</span><span class="o">:</span> <span class="s2">"mean"</span><span class="p">,</span>
+  <span class="nx">value</span><span class="o">:</span> <span class="mi">4</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The app should “gracefully” handle the following errors:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Passing in an invalid number (NaN errors). For instance, <cite>/mean?nums=foo,2,3</cite> should respond with a <cite>400 Bad Request</cite> status code and a response that saying something like: <cite>foo is not a number</cite>.</li>
+<li>Empty input: <cite>/mean</cite> without passing any <cite>nums</cite> should respond with a <cite>400 Bad Request</cite> status code saying something like <cite>nums are required</cite>.</li>
+</ul>
+</div></blockquote>
+<p>Make sure you have unit tests for <cite>mean</cite>, <cite>median</cite> and <cite>mode</cite>.</p>
+</div>
+<div class="section" id="further-study">
+<h3>Further Study</h3>
+<ul class="simple">
+<li>Make a route called <cite>/all</cite> that does all three operations at the same time, with the response from each of them as a key in the JSON response. It can look like this:</li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">response</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">operation</span><span class="o">:</span> <span class="s2">"all"</span><span class="p">,</span>
+  <span class="nx">mean</span><span class="o">:</span> <span class="mi">12</span>
+  <span class="nx">median</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">mode</span><span class="o">:</span> <span class="mi">8</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Provide special handling for an optional query key called <cite>save</cite> that can be set to <cite>true</cite>. This means the operation will write to a file. For example, <cite>/median?nums=1,3,5&amp;save=false</cite> will return a json response and will write to a file called <cite>results.json</cite>.</li>
+<li>Insert a timestamp for every operation that writes to a file.</li>
+<li>Honor the Accept header.  Return json if the client requests application/json and return html if the client requests text/html.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="solution">
+<h2>Solution</h2>
+<p><a class="reference external" href="https://curric.springboard.com/software-engineering-career-track/default/exercises/express-routing/solution/index.html">View our solution</a></p>
+</div>
+</div>
+
+
+
+    </div>
+</div>
+<script type="text/javascript" src="./Express Routing Exercises_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Express Routing Exercises_files/underscore.js.download"></script>
+<script type="text/javascript" src="./Express Routing Exercises_files/doctools.js.download"></script>
+<script type="text/javascript" src="./Express Routing Exercises_files/language_data.js.download"></script> 
+
+</body></html>
