@@ -1,16 +1,16 @@
 {
-  "name": "express-shopping-list",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "jest shoppinglist.test.js",
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.2",
-    "morgan": "^1.10.0"
-  }
+	"name": "express-shopping-list",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.18.2",
+		"morgan": "^1.10.0",
+		"supertest": "^6.3.3"
+	}
 }

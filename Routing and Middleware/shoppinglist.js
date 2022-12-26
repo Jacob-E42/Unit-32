@@ -1,13 +1,13 @@
 const express = require("express");
 const morgan = require("morgan");
 const ExpressError = require("./expressError");
-const router = require("./routes");
+const itemRoutes = require("./routes");
 const items = require("./fakeDb");
 const app = express();
 
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(router);
+app.use("/items", itemRoutes);
 
 app.use(function (req, res, next) {
 	const notFoundError = new ExpressError("Not Found", 404);
